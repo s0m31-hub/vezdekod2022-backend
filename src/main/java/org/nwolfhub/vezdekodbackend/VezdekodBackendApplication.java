@@ -17,18 +17,19 @@ public class VezdekodBackendApplication {
 		int get = 20;
 		int post = 3;
 		for(String arg:args) {
+			switch (arg) {
+				case "--get":
+				case "-g":
+					next = "get";
+					break;
+				case "--post":
+				case "-p":
+					next = "post";
+					break;
+			}
 			if(next.equals("get")) get = Integer.parseInt(arg);
 			else if(next.equals("post")) post = Integer.parseInt(arg);
-			else switch (arg) {
-					case "--get":
-					case "-g":
-						next = "get";
-						break;
-					case "--post":
-					case "-p":
-						next = "post";
-						break;
-				}
+			else next = "";
 		}
 		MainController.initialize(get, post);
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
