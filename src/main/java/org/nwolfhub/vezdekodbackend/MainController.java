@@ -21,7 +21,7 @@ import java.util.List;
 @RestController
 public class MainController {
     public static List<String> actors;
-    public static List<Vote> votes; //VK asked not to use any database so here's your shitcode :3
+    public static List<Vote> votes;
     public static HashMap<String, Integer> voteAmount;
 
     private static Logger logger;
