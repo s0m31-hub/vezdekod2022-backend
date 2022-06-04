@@ -17,6 +17,14 @@ public class VezdekodBackendApplication {
 		int get = 20;
 		int post = 3;
 		for(String arg:args) {
+			if(next.equals("get")) {
+				get = Integer.parseInt(arg);
+				next = "";
+			}
+			else if(next.equals("post")) {
+				post = Integer.parseInt(arg);
+				next = "";
+			}
 			switch (arg) {
 				case "--get":
 				case "-g":
@@ -27,9 +35,6 @@ public class VezdekodBackendApplication {
 					next = "post";
 					break;
 			}
-			if(next.equals("get")) get = Integer.parseInt(arg);
-			else if(next.equals("post")) post = Integer.parseInt(arg);
-			else next = "";
 		}
 		MainController.initialize(get, post);
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
